@@ -22,6 +22,24 @@ export class AdminService {
     });
   }
 
+  getRoomById(id: any) {
+    return this.http.get(`${BASIC_URL}/api/admin/room/${id}`, {
+      headers: this.createAutorizationHeader(),
+    });
+  }
+
+  updateRoomDetails(id: number, roomDto: any) {
+    return this.http.put(`${BASIC_URL}/api/admin/room/${id}`, roomDto, {
+      headers: this.createAutorizationHeader(),
+    });
+  }
+
+  deleteRoom(id: number) {
+    return this.http.delete(`${BASIC_URL}/api/admin/room/${id}`, {
+      headers: this.createAutorizationHeader(),
+    });
+  }
+
   createAutorizationHeader() {
     let authHeaders: HttpHeaders = new HttpHeaders();
     return authHeaders.set(

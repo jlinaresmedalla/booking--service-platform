@@ -33,7 +33,37 @@ export class UpdateRoomComponent {
       type: ['', Validators.required],
       price: ['', Validators.required],
     });
+    this.getRoomById();
   }
 
-  submitForm(): void {}
+  submitForm(): void {
+    this.adminService
+      .updateRoomDetails(this.id, this.updateRoomForm.value)
+      .subscribe(
+        (res: any) => {
+          this.message.success('Room updated successfully', {
+            nzDuration: 3000,
+          });
+          this.router.navigate(['/admin/dashboard']);
+        },
+        (error: any) => {
+          this.message.error(error.error.message);
+        }
+      );
+  }
+
+  getRoomById() {
+    this.adminService.getRoomById(this.id).subscribe(
+      (res: any) => {
+        this.updateRoomForm.patchValue({
+          name: res.name,
+          type: res.type,
+          price: res.price,
+        });
+      },
+      (error: any) => {
+        this.message.error(error.error.message);
+      }
+    );
+  }
 }
