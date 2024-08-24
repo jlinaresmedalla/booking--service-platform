@@ -16,6 +16,12 @@ export class AdminService {
     });
   }
 
+  getRooms(pageNumber: any) {
+    return this.http.get(`${BASIC_URL}/api/admin/rooms/${pageNumber}`, {
+      headers: this.createAutorizationHeader(),
+    });
+  }
+
   createAutorizationHeader() {
     let authHeaders: HttpHeaders = new HttpHeaders();
     return authHeaders.set(

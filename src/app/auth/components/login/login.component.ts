@@ -39,7 +39,6 @@ export class LoginComponent {
   submitForm() {
     this.authService.login(this.loginForm.value).subscribe(
       (res) => {
-        console.log(res);
         if (res.userId) {
           const user = { id: res.userId, role: res.userRole };
           UserStorageService.saveUser(user);
