@@ -9,6 +9,7 @@ import en from '@angular/common/locales/en';
 import { DemoNgZorroAntdModule } from './DemoNgZorroAntdModule';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 
 registerLocaleData(en);
 
@@ -22,6 +23,7 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     DemoNgZorroAntdModule,
     ReactiveFormsModule,
+    NzDatePickerModule,
     // other modules
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],

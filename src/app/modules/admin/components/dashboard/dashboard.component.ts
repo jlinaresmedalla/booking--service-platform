@@ -30,7 +30,6 @@ export class DashboardComponent {
   getRooms(): void {
     this.adminService.getRooms(this.currentPage - 1).subscribe(
       (response: { totalPages; roomDtoList }) => {
-        console.log(response);
         this.rooms = response.roomDtoList;
         this.total = response.totalPages * 1;
       },

@@ -1,1 +1,63 @@
-<p>rooms works!</p>
+<div class="center-form">
+  <div class="room-container">
+    <div class="room-row" *ngFor="let room of rooms">
+      <nz-card style="width: 300px; margin: 16px" [nzActions]="[actionEdit]">
+        <nz-skeleton
+          [nzActive]="true"
+          [nzLoading]="loading"
+          [nzAvatar]="{ size: 'large' }"
+        >
+          <nz-card-meta
+            [nzAvatar]="avatarTemplate"
+            nzTitle="{{ room.name }}"
+            nzDescription="Type: {{ room.type }}"
+          ></nz-card-meta>
+          <nz-card-meta
+            style="margin-left: 49px"
+            nzDescription="Price: {{ room.price }}"
+          ></nz-card-meta>
+        </nz-skeleton>
+        <ng-template #avatarTemplate>
+          <nz-avatar nzSize="large" nzIcon="user"></nz-avatar>
+        </ng-template>
+        <ng-template #actionEdit>
+          <span
+            nz-icon
+            nzType="check-square"
+            class="icon"
+            nzTheme="twotone"
+            (click)="showModalMiddle(room.id)"
+          ></span>
+        </ng-template>
+      </nz-card>
+    </div>
+  </div>
+
+  <div class="pagination">
+    <nz-pagination
+      [nzPageIndex]="currentPage"
+      [nzTotal]="total"
+      [nzPageSize]="1"
+      (nzPageIndexChange)="pageIndexChange($event)"
+    >
+    </nz-pagination>
+  </div>
+
+  <nz-modal
+    nzTitle="Book Room"
+    nzCentered
+    [(nzVisible)]="isVisibleMiddle"
+    (nzOnCancel)="handleCancelMiddle()"
+    (nzOnOk)="handleOkMiddle()"
+  >
+    <ng-container *nzModalContent>
+      <div class="modal-content">
+        <nz-range-picker
+          style="width: 100%"
+          [(nzValue)]="selectedDates"
+          (nzOnCalendarChange)="onCalendarChange($event)"
+        ></nz-range-picker>
+      </div>
+    </ng-container>
+  </nz-modal>
+</div>
