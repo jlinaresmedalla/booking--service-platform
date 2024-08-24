@@ -1,23 +1,11 @@
 <div class="center-form">
-  <h2>Enter details to Register</h2>
+  <h2>Enter your Credentials</h2>
   <form
     nz-form
-    [formGroup]="registerForm"
+    [formGroup]="loginForm"
     (ngSubmit)="submitForm()"
     class="custom-form"
   >
-    <nz-form-item>
-      <nz-form-control nzErrorTip="Please input your name!">
-        <nz-input-group nzPrefixIcon="idcard">
-          <input
-            type="text"
-            nz-input
-            formControlName="name"
-            placeHolder="Name"
-          />
-        </nz-input-group>
-      </nz-form-control>
-    </nz-form-item>
     <nz-form-item>
       <nz-form-control nzErrorTip="Please input your email!">
         <nz-input-group nzPrefixIcon="user">
@@ -46,10 +34,10 @@
       nz-button
       nzType="primary"
       nzBlock
-      [disabled]="registerForm.invalid"
+      [disabled]="loginForm.invalid"
       class="w-100"
     >
-      Register
+      Login
     </button>
   </form>
 </div>
