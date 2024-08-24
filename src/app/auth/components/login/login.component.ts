@@ -46,6 +46,12 @@ export class LoginComponent {
           UserStorageService.saveToken(res.jwt);
 
           this.message.success('Login success', { nzDuration: 5000 });
+          if (UserStorageService.isAdminLoggedIn()) {
+            this.router.navigateByUrl('/admin/dashboard');
+          }
+          if (UserStorageService.isCustomerLoggedIn()) {
+            this.router.navigateByUrl('/customer/rooms');
+          }
         }
       },
       (error) => {

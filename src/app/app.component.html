@@ -19,6 +19,10 @@
   <nz-sider nzCollapsible nzwidth="200px" *ngIf="isAdminLoggedIn">
     <div class="logo"></div>
     <ul nz-menu nzMode="inline" nzTheme="dark">
+      <li nz-menu-item routerLink="/admin/room">
+        <span nz-icon nzType="apartment"></span>
+        <span><strong>PostRoom</strong></span>
+      </li>
       <li nz-menu-item routerLink="/admin/rooms">
         <span nz-icon nzType="apartment"></span>
         <span><strong>Rooms</strong></span>
