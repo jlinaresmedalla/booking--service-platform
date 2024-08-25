@@ -22,6 +22,16 @@ export class CustomerService {
     });
   }
 
+  getMyBookings(pageNumber: any) {
+    const userId = UserStorageService.getUserId();
+    return this.http.get(
+      `${BASIC_URL}/api/customer/bookings/${userId}/${pageNumber}`,
+      {
+        headers: this.createAutorizationHeader(),
+      }
+    );
+  }
+
   createAutorizationHeader() {
     let authHeaders: HttpHeaders = new HttpHeaders();
     return authHeaders.set(
