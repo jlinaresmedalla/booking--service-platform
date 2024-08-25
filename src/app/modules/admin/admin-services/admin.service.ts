@@ -40,6 +40,21 @@ export class AdminService {
     });
   }
 
+  getReservations(pageNumber: any) {
+    return this.http.get(`${BASIC_URL}/api/admin/reservations/${pageNumber}`, {
+      headers: this.createAutorizationHeader(),
+    });
+  }
+
+  changeReservationStatus(reservationId: number, status: string) {
+    return this.http.get(
+      `${BASIC_URL}/api/admin/reservation/${reservationId}/${status}`,
+      {
+        headers: this.createAutorizationHeader(),
+      }
+    );
+  }
+
   createAutorizationHeader() {
     let authHeaders: HttpHeaders = new HttpHeaders();
     return authHeaders.set(
