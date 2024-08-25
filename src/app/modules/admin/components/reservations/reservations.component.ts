@@ -49,12 +49,12 @@ export class ReservationsComponent {
 
   changeReservationStatus(bookingId: number, status: string): void {
     this.adminService.changeReservationStatus(bookingId, status).subscribe(
-      () => {
+      (response) => {
         this.getReservations();
         this.message.success('Reservation status changed successfully');
       },
       (error) => {
-        this.message.error(`${error.error.message}`, { nzDuration: 5000 });
+        this.getReservations();
       }
     );
   }
