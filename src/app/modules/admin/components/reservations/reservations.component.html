@@ -3,14 +3,14 @@
   <nz-table #basicTable [nzShowPagination]="'false'" [nzData]="reservations">
     <thead>
       <tr>
-        <th>Room Name</th>
-        <th>Room Type</th>
-        <th>Check In Date</th>
-        <th>Check Out Date</th>
-        <th>Price</th>
-        <th>UserName</th>
-        <th>Status</th>
-        <th>Action</th>
+        <th>Habitacion</th>
+        <th>Tipo</th>
+        <th>Check In</th>
+        <th>Check Out</th>
+        <th>Precio</th>
+        <th>Usuario</th>
+        <th>Estado</th>
+        <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -25,19 +25,19 @@
           <ng-container *ngIf="reservation.reservationStatus === 'PENDING'">
             <nz-tag nzColor="processing">
               <span nz-icon nzType="sync" nzSpin></span>
-              <span>Pending</span>
+              <span>Pendiente</span>
             </nz-tag>
           </ng-container>
           <ng-container *ngIf="reservation.reservationStatus === 'APPROVED'">
             <nz-tag nzColor="success">
               <span nz-icon nzType="check-circle" nzSpin></span>
-              <span>Approved</span>
+              <span>Aprovado</span>
             </nz-tag>
           </ng-container>
           <ng-container *ngIf="reservation.reservationStatus === 'REJECTED'">
             <nz-tag nzColor="error">
               <span nz-icon nzType="close-circle" nzSpin></span>
-              <span>Rejected</span>
+              <span>Rechazado</span>
             </nz-tag>
           </ng-container>
         </td>

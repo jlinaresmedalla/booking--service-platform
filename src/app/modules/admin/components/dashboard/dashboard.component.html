@@ -5,7 +5,7 @@
     class="post-room-btn"
     routerLink="/admin/room"
   >
-    Post Room
+    Crear Habitacion
   </button>
   <div class="room-container">
     <div class="room-row" *ngFor="let room of rooms">
@@ -21,11 +21,11 @@
           <nz-card-meta
             [nzAvatar]="avatarTemplate"
             nzTitle="{{ room.name }}"
-            nzDescription="Type: {{ room.type }}"
+            nzDescription="Tipo: {{ room.type }}"
           ></nz-card-meta>
           <nz-card-meta
             style="margin-left: 49px"
-            nzDescription="Price: {{ room.price }}"
+            nzDescription="Precio: {{ room.price }}"
           ></nz-card-meta>
         </nz-skeleton>
         <ng-template #avatarTemplate>
